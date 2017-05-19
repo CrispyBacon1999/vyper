@@ -5,9 +5,9 @@ A telegram bot API library designed for Python 3.5. Works seamlessly with API v3
 
 |   Contents   |
 |--------------|
-| [Installation](#Installation) |
-|  [Setup](#Setup)  |
-|     [Docs](#Documentation)     |
+| [Installation](#installation) |
+|  [Setup](#setup)  |
+|     [Docs](#documentation)     |
 
 # Installation
 ***
@@ -38,7 +38,7 @@ bot.sendMessage(chat_id, 'This is a message that will be sent to the chat specif
 ```
 If your replace `chat_id` with the chat ID of the group you want to send a message to, it will send the message that is in the second argument to that group. Since `disable_notification` is True, it will not send a notification to the people in that group telling them there's a new message.
 
-In order to recieve messages, you must run the [getUpdates()](###getUpdates) function in a loop. The easiest way to do this is to use
+In order to recieve messages, you must run the [getUpdates()](###getupdates) function in a loop. The easiest way to do this is to use
 ```python
 import time
 while(True):
