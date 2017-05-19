@@ -217,14 +217,14 @@ class API():
     def kickChatMember(self, chat_id, user_id):
         params = {
             'chat_id': chat_id,
-            'userid': user_id
+            'user_id': user_id
             }
         return self.request('kickChatMember', parameters=params)
 
-    def unbanChatMember(self, chat_id, userid):
+    def unbanChatMember(self, chat_id, user_id):
         params = {
             'chat_id': chat_id,
-            'userid': userid
+            'user_id': user_id
             }
         return self.request('unbanChatMember', parameters=params)
 
@@ -252,10 +252,10 @@ class API():
             }
         return self.request('getChatMembersCount', parameters=params)
 
-    def getChatMember(self, chat_id, userid):
+    def getChatMember(self, chat_id, user_id):
         params = {
             'chat_id': chat_id,
-            'user_id': userid
+            'user_id': user_id
             }
         return self.request('getChatMember', parameters=params)
 
