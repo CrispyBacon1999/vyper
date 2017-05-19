@@ -59,10 +59,10 @@ class API():
         paramscleaned = {k: v for k, v in params.items() if v}
         return self.request('sendMessage', parameters=paramscleaned)
 
-    def forwardMessage(self, chat_id, fromchat_id, message_id, disable_notification=False):
+    def forwardMessage(self, chat_id, from_chat_id, message_id, disable_notification=False):
         params = {
             'chat_id': chat_id,
-            'from_chat_id': fromchat_id,
+            'from_chat_id': from_chat_id,
             'message_id': message_id,
             'disable_notification': disable_notification
             }
@@ -199,25 +199,25 @@ class API():
             }
         return self.request('sendChatAction', parameters=params)
 
-    def getUserProfilePhotos(self, userid, offset, limit):
+    def getUserProfilePhotos(self, user_id, offset=None, limit=None):
         params = {
-            'user_id': userid,
+            'user_id': user_id,
             'offset': offset,
             'limit': limit
             }
         paramscleaned = {k: v for k, v in params.items() if v}
         return self.request('getUserProfilePhotos', parameters=paramscleaned)
 
-    def getFile(self, fileid):
+    def getFile(self, file_id):
         params = {
-            'file_id': fileid
+            'file_id': file_id
             }
         return self.request('getFile', parameters=params)
 
-    def kickChatMember(self, chat_id, userid):
+    def kickChatMember(self, chat_id, user_id):
         params = {
             'chat_id': chat_id,
-            'userid': userid
+            'userid': user_id
             }
         return self.request('kickChatMember', parameters=params)
 
