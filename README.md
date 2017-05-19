@@ -29,7 +29,7 @@ from vyper import vyper
 
 bot = vyper.API().configure('123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11')
 ```
-This is the most simple way to create a bot, but it won't run an update loop. However, you are able to run any of the bot API functions, such as [sendMessage()](###sendMessage). 
+This is the most simple way to create a bot, but it won't run an update loop. However, you are able to run any of the bot API functions, such as [sendMessage()](#sendMessage). 
 ```python
 from vyper import vyper
 
@@ -38,7 +38,7 @@ bot.sendMessage(chat_id, 'This is a message that will be sent to the chat specif
 ```
 If your replace `chat_id` with the chat ID of the group you want to send a message to, it will send the message that is in the second argument to that group. Since `disable_notification` is True, it will not send a notification to the people in that group telling them there's a new message.
 
-In order to recieve messages, you must run the [getUpdates()](###getupdates) function in a loop. The easiest way to do this is to use
+In order to recieve messages, you must run the [getUpdates()](#getupdates) function in a loop. The easiest way to do this is to use
 ```python
 import time
 while(True):
@@ -73,7 +73,7 @@ The following section is the documentation for each function available through t
 No parameters, returns User object with information about the bot.
 
 ### getUpdates
-No parameters, gets updates from Telegram and runs the appropriate function, as setup by [configure()](###configure).
+No parameters, gets updates from Telegram and runs the appropriate function, as setup by [configure()](#configure).
 
 ### sendMessage
 |Parameters|Type|Required|Description|
