@@ -42,7 +42,7 @@ In order to recieve messages, you must run the [getUpdates()](#getupdates) funct
 ```python
 import time
 while(True):
-	bot.getUpdates()
+    bot.getUpdates()
     time.sleep(.05)
 ```
 This will check for updates 20 times a second, which is far more than necessary, but will give very fast response times. In order for the messages to be handled, the configuration needs an extra argument, giving a function for every type of message that could be sent.
