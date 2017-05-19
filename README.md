@@ -29,7 +29,7 @@ from vyper import vyper
 
 bot = vyper.API().configure('123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11')
 ```
-This is the most simple way to create a bot, but it won't run an update loop. However, you are able to run any of the bot API functions, such as [sendMessage()](#sendMessage). 
+This is the most simple way to create a bot, but it won't run an update loop. However, you are able to run any of the bot API functions, such as [sendMessage()](#sendmessage). 
 ```python
 from vyper import vyper
 
