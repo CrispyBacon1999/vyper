@@ -217,7 +217,7 @@ All that needs to be done is to create a method that will be run from a message 
 <span class="n">bot</span> <span class="o">=</span> <span class="n">vyper</span><span class="o">.</span><span class="n">API</span><span class="p">()</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11&#39;</span><span class="p">,</span> <span class="n">functions</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">on_message</span><span class="p">})</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">vyper</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">)</span>
 </pre></div>
 </div>

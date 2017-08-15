@@ -92,6 +92,6 @@ All that needs to be done is to create a method that will be run from a message 
     bot = vyper.API().configure('123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11', functions={'message': on_message})
 
     while True:
-        vyper.getUpdates()
+        bot.getUpdates()
         time.sleep(.05)
 
