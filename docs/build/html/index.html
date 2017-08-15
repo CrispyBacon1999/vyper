@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Vyper-Bot’s documentation! &mdash; Vyper-Bot 3.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Vyper-Bot 3.2 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Vyper-Bot
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to Vyper-Bot’s documentation!</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#getting-updates">Getting Updates</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Vyper-Bot</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to Vyper-Bot’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-vyper-bot-s-documentation">
+<h1>Welcome to Vyper-Bot’s documentation!<a class="headerlink" href="#welcome-to-vyper-bot-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install using pip, simply run</p>
+<p><code class="docutils literal"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">vyper-bot</span></code></p>
+<p>in a terminal.</p>
+<p>If you already have it installed but want to check for a new version, run</p>
+<p><code class="docutils literal"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">vyper-bot</span> <span class="pre">--upgrade</span></code></p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>When first starting to get your bot up and running, you must start by getting a bot key from the BotFather.
+This key can be retrieved by sending <code class="docutils literal"><span class="pre">/newbot</span></code> in a message to <a class="reference external" href="https://t.me/BotFather">BotFather</a>. After answering a few questions,
+you will be rewarded with a key that will look very similar to <code class="docutils literal"><span class="pre">123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</span></code>.</p>
+<p>The most simple program that you can make is one that only has an object representing the API.
+I prefer to name this object <code class="docutils literal"><span class="pre">bot</span></code> as this makes it easier to reference later when making calls.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vyper</span> <span class="k">import</span> <span class="n">vyper</span>
+
+<span class="n">bot</span> <span class="o">=</span> <span class="n">vyper</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This API object is fully functional, but won’t do anything for a few reasons.
+First of all, we aren’t asking it to do anything, but also, the bot key isn’t put into the API yet.
+All you have to do to make the key part of the bot is to take this line</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">bot</span> <span class="o">=</span> <span class="n">vyper</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and turn it into</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">bot</span> <span class="o">=</span> <span class="n">vyper</span><span class="o">.</span><span class="n">API</span><span class="p">()</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;botkey&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">botkey</span></code> is your key that you got from BotFather.</p>
+<p>Now, you can run any of the methods from the <a class="reference external" href="https://core.telegram.org/bots/api#available-methods">Telegram API</a> using the following code as an example.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Sends a message to the chat id or chat username.</span>
+<span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">chat_id</span><span class="p">,</span> <span class="s1">&#39;Test message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will send the message <code class="docutils literal"><span class="pre">Test</span> <span class="pre">Message</span></code> to the chat that you specify.</p>
+</div>
+<div class="section" id="getting-updates">
+<h2>Getting Updates<a class="headerlink" href="#getting-updates" title="Permalink to this headline">¶</a></h2>
+<p>One of the biggest requirements of a telegram bot is the ability to get the messages that are sent to a group
+so that it can send a message back in response to commands.
+I’ve made the process of getting updates extremely simple, just modifying one of the existing lines.
+All that needs to be done is to create a method that will be run from a message being sent.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vyper</span> <span class="k">import</span> <span class="n">vyper</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s1">&#39;chat&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="s1">&#39;I have recieved your message&#39;</span><span class="p">)</span>
+
+<span class="n">bot</span> <span class="o">=</span> <span class="n">vyper</span><span class="o">.</span><span class="n">API</span><span class="p">()</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11&#39;</span><span class="p">,</span> <span class="n">functions</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">on_message</span><span class="p">})</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">vyper</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="o">.</span><span class="mi">05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Josh Bacon.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
