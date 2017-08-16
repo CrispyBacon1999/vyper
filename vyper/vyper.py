@@ -11,7 +11,7 @@ class API():
 	_functions = None
 	def configure(self, token, functions=None,debug=False):
 		if not token or not isinstance(token, str):
-			sys.exit("Provide a valid token. Can be retrieved from @BotFather!")
+			raise ValueError("Provide a valid token. Can be retrieved from @BotFather!")
 		self._token = token
 		self._debug = debug
 		self._functions = functions
@@ -184,13 +184,14 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('sendLocation', parameters=paramscleaned)
 		
-	def sendVenue(self, chat_id, latitude, longitude, title, address, disable_notification=False, reply_to_message_id=None, reply_markup=None):
+	def sendVenue(self, chat_id, latitude, longitude, title, address, foursquare_id='', disable_notification=False, reply_to_message_id=None, reply_markup=None):
 		params = {
 			'chat_id': chat_id,
 			'latitude': latitude,
 			'longitude': longitude,
 			'title': title,
 			'address': address,
+			'foursquare_id': foursquare_id,
 			'disable_notification': disable_notification,
 			'reply_to_message_id': reply_to_message_id,
 			'reply_markup': reply_markup
@@ -248,12 +249,26 @@ class API():
 			}
 		return self.request('unbanChatMember', parameters=params)
 
+	def restrictChatMember(self, chat_id, user_id, until_date=0, can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True, can_add_web_page_previews=True):
+		params = {
+			'chat_id': chat_id,
+			'user_id': user_id,
+			'until_date': until_date,
+			'can_send_messages': can_send_messages,
+			'can_send_media_messages': can_send_media_messages,
+			'can_send_other_messages': can_send_other_messages,
+			'can_add_web_page_previews': can_add_web_page_previews
+			}
+		paramscleaned = {k: v for k, v in params.items() if v}
+		return self.request('restrictChatMember', parameters=paramscleaned)
+
 	def leaveChat(self, chat_id):
 		params = {
 			'chat_id': chat_id
 			}
 		return self.request('leaveChat', parameters=params)
 
+		
 	def getChat(self, chat_id):
 		params = {
 			'chat_id': chat_id
@@ -405,18 +420,7 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('sendGame', parameters=paramscleaned)
 
-	def restrictChatMember(self, chat_id, user_id, until_date=0, can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True, can_add_web_page_previews=True):
-		params = {
-			'chat_id': chat_id,
-			'user_id': user_id,
-			'until_date': until_date,
-			'can_send_messages': can_send_messages,
-			'can_send_media_messages': can_send_media_messages,
-			'can_send_other_messages': can_send_other_messages,
-			'can_add_web_page_previews': can_add_web_page_previews
-			}
-		paramscleaned = {k: v for k, v in params.items() if v}
-		return self.request('restrictChatMember', parameters=paramscleaned)
+	
 
 	def promoteChatMember(self, chat_id, user_id, can_change_info=False, can_post_messages=False, can_edit_messages=False, can_delete_messages=False, can_invite_users=False, can_restrict_members=False, can_pin_messages=False, can_promote_members=False):
 		params = {

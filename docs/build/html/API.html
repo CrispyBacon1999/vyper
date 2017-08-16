@@ -1,0 +1,1284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; Vyper-Bot 3.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Vyper-Bot 3.2 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Vyper-Bot
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Vyper-Bot</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <dl class="class">
+<dt id="API">
+<em class="property">class </em><code class="descname">API</code><a class="headerlink" href="#API" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Vyper Methods</strong></p>
+<dl class="method">
+<dt id="API.configure">
+<code class="descname">configure</code><span class="sig-paren">(</span><em>token</em>, <em>functions={}</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#API.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures the bot with the token and functions to run on updates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<em>str</em>) – The token of the bot retrieved from the BotFather</li>
+<li><strong>functions</strong> (<em>dict</em>) – A dictionary that has the message types and functions</li>
+<li><strong>debug</strong> (<em>boolean</em>) – An experimental value that doesn’t have a use yet, but will in later versions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>ValueError</strong> – if token is blank or not a string</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>endpoint</em>, <em>parameters=None</em>, <em>file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests the endpoint from the telegram API. Shouldn’t need to be called as the other functions run this more effectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>endpoint</strong> (<em>str</em>) – The endpoint to be requested</li>
+<li><strong>parameters</strong> (<em>dict</em>) – The parameters attached to the request</li>
+<li><strong>file</strong> (<em>file</em>) – A file that is sent with the request</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Value retrieved from API, usually updates or a success dictionary</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Valid parameter keys for <code class="docutils literal"><span class="pre">parameters</span></code>:
+<code class="xref py py-const docutils literal"><span class="pre">message</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">edited_message</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">channel_post</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">edited_channel_post</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">inline_query</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">chosen_inline_result</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">callback_query</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">shipping_query</span></code>
+<code class="xref py py-const docutils literal"><span class="pre">pre_checkout_query</span></code></p>
+</dd></dl>
+
+<p><strong>Telegram Commands</strong></p>
+<dl class="method">
+<dt id="API.getMe">
+<code class="descname">getMe</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getMe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the user object for the bot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The bot</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">User Object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getUpdates">
+<code class="descname">getUpdates</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getUpdates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the updates that are pending an update. Will store the current update value in the file <code class="docutils literal"><span class="pre">lastupdate.vyper</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Doesn’t return a value, but instead runs the corresponding function</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendMessage">
+<code class="descname">sendMessage</code><span class="sig-paren">(</span><em>chat_id</em>, <em>text</em>, <em>parse_mode=None</em>, <em>disable_web_page_preview=False</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>text</strong> (<em>str</em>) – Text to send in the message</li>
+<li><strong>parse_mode</strong> (<em>str</em>) – <cite>Markdown</cite> or <cite>HTML</cite>, depending on which formatting style is preferred</li>
+<li><strong>disable_web_page_preview</strong> (<em>boolean</em>) – Whether to show a preview of the webpage on the message</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.forwardMessage">
+<code class="descname">forwardMessage</code><span class="sig-paren">(</span><em>chat_id</em>, <em>from_chat_id</em>, <em>message_id</em>, <em>disable_notification=False</em><span class="sig-paren">)</span><a class="headerlink" href="#API.forwardMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forwards a message from one chat to another.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>from_chat_id</strong> (<em>int</em>) – Chat id of the original chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – Message id of the message from the original chat</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendPhoto">
+<code class="descname">sendPhoto</code><span class="sig-paren">(</span><em>chat_id</em>, <em>photo</em>, <em>caption=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendPhoto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a photo to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>photo</strong> (<em>file</em>) – Photo to send</li>
+<li><strong>caption</strong> (<em>str</em>) – The text displayed with the photo</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendAudio">
+<code class="descname">sendAudio</code><span class="sig-paren">(</span><em>chat_id</em>, <em>audio</em>, <em>caption=''</em>, <em>duration=None</em>, <em>performer=''</em>, <em>title=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendAudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an audio track to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>audio</strong> (<em>file</em>) – Audio track to send</li>
+<li><strong>caption</strong> (<em>str</em>) – The text displayed with the audio</li>
+<li><strong>duration</strong> (<em>int</em>) – The duration of the track</li>
+<li><strong>performer</strong> (<em>str</em>) – Performer of the track</li>
+<li><strong>title</strong> (<em>str</em>) – Title of the track</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendDocument">
+<code class="descname">sendDocument</code><span class="sig-paren">(</span><em>chat_id</em>, <em>document</em>, <em>caption=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a document to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>document</strong> (<em>file</em>) – Audio track to send</li>
+<li><strong>caption</strong> (<em>str</em>) – The text displayed with the audio</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendVideo">
+<code class="descname">sendVideo</code><span class="sig-paren">(</span><em>self</em>, <em>chat_id</em>, <em>video</em>, <em>duration=None</em>, <em>width=None</em>, <em>height=None</em>, <em>caption=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a video to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>audio</strong> (<em>file</em>) – Audio track to send</li>
+<li><strong>duration</strong> (<em>int</em>) – The duration of the video</li>
+<li><strong>width</strong> (<em>int</em>) – Width of the video</li>
+<li><strong>height</strong> (<em>int</em>) – Height of the video</li>
+<li><strong>caption</strong> (<em>str</em>) – The text displayed with the video</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendVoice">
+<code class="descname">sendVoice</code><span class="sig-paren">(</span><em>self</em>, <em>chat_id</em>, <em>voice</em>, <em>caption=None</em>, <em>duration=None</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendVoice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a voice message to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>voice</strong> (<em>file</em>) – Audio to send (.ogg)</li>
+<li><strong>caption</strong> (<em>str</em>) – The text displayed with the audio</li>
+<li><strong>duration</strong> (<em>int</em>) – The duration of the message</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendVideoNote">
+<code class="descname">sendVideoNote</code><span class="sig-paren">(</span><em>self</em>, <em>chat_id</em>, <em>video_note</em>, <em>length=None</em>, <em>duration=None</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendVideoNote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a video note to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>video_note</strong> (<em>file</em>) – Video to send</li>
+<li><strong>duration</strong> (<em>int</em>) – The duration of the track</li>
+<li><strong>length</strong> (<em>int</em>) – Video width and height</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendLocation">
+<code class="descname">sendLocation</code><span class="sig-paren">(</span><em>chat_id</em>, <em>latitude</em>, <em>longitude</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a location to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>latitude</strong> (<em>float</em>) – Latitude of the location</li>
+<li><strong>longitude</strong> (<em>float</em>) – Longitude of the location</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendVenue">
+<code class="descname">sendVenue</code><span class="sig-paren">(</span><em>chat_id</em>, <em>latitude</em>, <em>longitude</em>, <em>title</em>, <em>address</em>, <em>foursquare_id=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendVenue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a venue to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>latitude</strong> (<em>float</em>) – Latitude of the venue</li>
+<li><strong>longitude</strong> (<em>float</em>) – Longitude of the venue</li>
+<li><strong>title</strong> (<em>str</em>) – Name of the venue</li>
+<li><strong>address</strong> (<em>str</em>) – Address of the venue</li>
+<li><strong>foursquare_id</strong> (<em>str</em>) – Foursquare id of the venue</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendContact">
+<code class="descname">sendContact</code><span class="sig-paren">(</span><em>chat_id</em>, <em>phone_number</em>, <em>first_name</em>, <em>last_name=''</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendContact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a contact to the chat specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>phone_number</strong> (<em>str</em>) – Latitude of the contact</li>
+<li><strong>first_name</strong> (<em>str</em>) – Longitude of the contact</li>
+<li><strong>last_name</strong> (<em>str</em>) – Name of the contact</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – The message id to make the message reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendChatAction">
+<code class="descname">sendChatAction</code><span class="sig-paren">(</span><em>chat_id</em>, <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendChatAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the bot’s current status to the chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>action</strong> (<a class="reference internal" href="#ChatAction" title="ChatAction"><em>ChatAction</em></a>) – Type of action to broadcast</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getUserProfilePhotos">
+<code class="descname">getUserProfilePhotos</code><span class="sig-paren">(</span><em>user_id</em>, <em>offset=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getUserProfilePhotos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an array of profile photos from the target user</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> (<em>int</em>) – The user id of the target user</li>
+<li><strong>offset</strong> (<em>int</em>) – The first photo to be returned</li>
+<li><strong>limit</strong> (<em>int</em>) – The maximum number of photos to be retrieved</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getFile">
+<code class="descname">getFile</code><span class="sig-paren">(</span><em>file_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets simple file information to be downloaded from <code class="docutils literal"><span class="pre">https://api.telegram.org/file/bot&lt;token&gt;/&lt;file_path&gt;</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_id</strong> (<em>str</em>) – File identifier</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><strong>Administrative Commands</strong></p>
+<dl class="method">
+<dt id="API.kickChatMember">
+<code class="descname">kickChatMember</code><span class="sig-paren">(</span><em>chat_id</em>, <em>user_id</em>, <em>until_date=0</em><span class="sig-paren">)</span><a class="headerlink" href="#API.kickChatMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kicks a chat member until the date specified or until unbanned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>user_id</strong> (<em>int</em>) – The id of the target user</li>
+<li><strong>until_date</strong> (<em>int</em>) – The date in unix time that the user will be unbanned</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.unbanChatMember">
+<code class="descname">unbanChatMember</code><span class="sig-paren">(</span><em>chat_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.unbanChatMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unbans a chat member from a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>user_id</strong> (<em>int</em>) – The id of the target user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.restrictChatMember">
+<code class="descname">restrictChatMember</code><span class="sig-paren">(</span><em>chat_id</em>, <em>user_id</em>, <em>until_date=0</em>, <em>can_send_messages=True</em>, <em>can_send_media_messages=True</em>, <em>can_send_other_messages=True</em>, <em>can_add_web_page_previews=True</em><span class="sig-paren">)</span><a class="headerlink" href="#API.restrictChatMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restricts a chat member’s permissions in a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>user_id</strong> (<em>int</em>) – The id of the target user</li>
+<li><strong>until_date</strong> (<em>int</em>) – The date in unix time that the user will be unbanned</li>
+<li><strong>can_send_messages</strong> (<em>boolean</em>) – Whether a user can send messages</li>
+<li><strong>can_send_media_messages</strong> (<em>boolean</em>) – Whether a user can send media messages</li>
+<li><strong>can_send_other_messages</strong> (<em>boolean</em>) – Whether a user can send other messages</li>
+<li><strong>can_add_web_page_previews</strong> (<em>boolean</em>) – Whether a user can create web page previews</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.promoteChatMember">
+<code class="descname">promoteChatMember</code><span class="sig-paren">(</span><em>chat_id</em>, <em>user_id</em>, <em>can_change_info=False</em>, <em>can_post_messages=False</em>, <em>can_edit_messages=False</em>, <em>can_delete_messages=False</em>, <em>can_invite_users=False</em>, <em>can_restrict_members=False</em>, <em>can_pin_messages=False</em>, <em>can_promote_members=False</em><span class="sig-paren">)</span><a class="headerlink" href="#API.promoteChatMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Promotes a chat member</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>user_id</strong> (<em>int</em>) – The id of the target user</li>
+<li><strong>can_change_info</strong> (<em>boolean</em>) – Whether a user can change group info</li>
+<li><strong>can_post_messages</strong> (<em>boolean</em>) – Whether a user can make channel posts</li>
+<li><strong>can_edit_messages</strong> (<em>boolean</em>) – Whether a user can edit other messages in a channel</li>
+<li><strong>can_delete_messages</strong> (<em>boolean</em>) – Whether a user can delete other users’ messages</li>
+<li><strong>can_invite_users</strong> (<em>boolean</em>) – Whether a user can invite members to the group</li>
+<li><strong>can_restrict_members</strong> (<em>boolean</em>) – Whether a user can restrict members in the group</li>
+<li><strong>can_pin_messages</strong> (<em>boolean</em>) – Whether a user can pin messages</li>
+<li><strong>can_promote_members</strong> (<em>boolean</em>) – Whether a user can promote users</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.leaveChat">
+<code class="descname">leaveChat</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.leaveChat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the bot leave the target chat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getChat">
+<code class="descname">getChat</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getChat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information on the target chat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getChatAdministrators">
+<code class="descname">getChatAdministrators</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getChatAdministrators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of administrators in the target chat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getChatMembersCount">
+<code class="descname">getChatMembersCount</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getChatMembersCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns number of members in the target chat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getChatMember">
+<code class="descname">getChatMember</code><span class="sig-paren">(</span><em>chat_id</em>, <em>user_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getChatMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information on the target chat member</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>user_id</strong> (<em>int</em>) – The id of the target user</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.answerCallbackQuery">
+<code class="descname">answerCallbackQuery</code><span class="sig-paren">(</span><em>callback_query_id</em>, <em>text=''</em>, <em>show_alert=False</em>, <em>url=''</em>, <em>cache_time=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.answerCallbackQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an answer to a callback query from an inline keyboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>callback_query_id</strong> (<em>str</em>) – Callback query id</li>
+<li><strong>text</strong> (<em>str</em>) – Text for the notification</li>
+<li><strong>show_alert</strong> (<em>boolean</em>) – Shows an alert instead of a notification</li>
+<li><strong>url</strong> (<em>str</em>) – Url of game or to open bot with parameter</li>
+<li><strong>cache_time</strong> (<em>str</em>) – Time to cache the query on the client</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.editMessageText">
+<code class="descname">editMessageText</code><span class="sig-paren">(</span><em>text</em>, <em>chat_id=None</em>, <em>message_id=None</em>, <em>inline_message_id=None</em>, <em>parse_mode=None</em>, <em>disable_web_page_preview=False</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.editMessageText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a message from a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> (<em>str</em>) – New text for the message</li>
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – Message id in the target chat</li>
+<li><strong>inline_message_id</strong> (<em>str</em>) – Inline message id in the target chat</li>
+<li><strong>parse_mode</strong> (<em>str</em>) – <cite>Markdown</cite> or <cite>HTML</cite>, depending on which formatting style is preferred</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Whether to disable the notification for the message</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.editMessageCaption">
+<code class="descname">editMessageCaption</code><span class="sig-paren">(</span><em>chat_id=None</em>, <em>message_id=None</em>, <em>inline_message_id=None</em>, <em>caption=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.editMessageCaption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits a caption from a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – Message id in the target chat</li>
+<li><strong>inline_message_id</strong> (<em>str</em>) – Inline message id in the target chat</li>
+<li><strong>parse_mode</strong> (<em>str</em>) – <cite>Markdown</cite> or <cite>HTML</cite>, depending on which formatting style is preferred</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.editMessageReplyMarkup">
+<code class="descname">editMessageReplyMarkup</code><span class="sig-paren">(</span><em>chat_id=None</em>, <em>message_id=None</em>, <em>inline_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.editMessageReplyMarkup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Edits the reply markup on a message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – Message id in the target chat</li>
+<li><strong>inline_message_id</strong> (<em>str</em>) – Inline message id in the target chat</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The custom markup applied to the message, such as inline keyboards</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.deleteMessage">
+<code class="descname">deleteMessage</code><span class="sig-paren">(</span><em>chat_id</em>, <em>message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.deleteMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a message from a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Chat id of the target chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – Message id in the target chat</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.answerInlineQuery">
+<code class="descname">answerInlineQuery</code><span class="sig-paren">(</span><em>inline_query_id</em>, <em>results</em>, <em>cache_time=None</em>, <em>is_personal=False</em>, <em>next_offset=''</em>, <em>switch_pm_text=''</em>, <em>switch_pm_parameter=''</em><span class="sig-paren">)</span><a class="headerlink" href="#API.answerInlineQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Answers an inline query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>inline_query_id</strong> (<em>str</em>) – The id of the inline query</li>
+<li><strong>results</strong> – The results to send to the user</li>
+<li><strong>cache_time</strong> (<em>integer</em>) – The time to cache the results on the server</li>
+<li><strong>is_personal</strong> (<em>boolean</em>) – Should results be cached server side only for that user</li>
+<li><strong>next_offset</strong> (<em>str</em>) – Offset a client should send in the next query to recieve more results</li>
+<li><strong>switch_pm_text</strong> (<em>str</em>) – Clients display button with specified text that switches to private chat</li>
+<li><strong>switch_pm_parameter</strong> (<em>str</em>) – The parameter for the /start message sent when the button is pressed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendInvoice">
+<code class="descname">sendInvoice</code><span class="sig-paren">(</span><em>chat_id</em>, <em>title</em>, <em>description</em>, <em>payload</em>, <em>provider_token</em>, <em>start_parameter</em>, <em>currency</em>, <em>prices</em>, <em>photo_url=''</em>, <em>photo_size=None</em>, <em>photo_height=None</em>, <em>photo_width=None</em>, <em>need_name=False</em>, <em>need_phone_number=False</em>, <em>need_email=False</em>, <em>need_shipping_address=False</em>, <em>is_flexible=False</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendInvoice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an invoice to the user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – Private chat id</li>
+<li><strong>title</strong> (<em>str</em>) – Product name</li>
+<li><strong>description</strong> (<em>str</em>) – Product description</li>
+<li><strong>payload</strong> (<em>str</em>) – Invoice payload</li>
+<li><strong>provider_token</strong> (<em>str</em>) – Payment token from BotFather</li>
+<li><strong>start_parameter</strong> (<em>str</em>) – Deep linking parameter when used as a /start parameter</li>
+<li><strong>currency</strong> (<em>str</em>) – Three letter <a class="reference external" href="https://core.telegram.org/bots/payments#supported-currencies">currency code</a></li>
+<li><strong>prices</strong> (<em>list</em>) – Array of prices</li>
+<li><strong>photo_url</strong> (<em>str</em>) – Product photo</li>
+<li><strong>photo_size</strong> (<em>int</em>) – Photo size</li>
+<li><strong>photo_width</strong> (<em>int</em>) – Photo width</li>
+<li><strong>photo_height</strong> (<em>int</em>) – Photo height</li>
+<li><strong>need_name</strong> (<em>boolean</em>) – Needs full name to complete order</li>
+<li><strong>need_phone_number</strong> (<em>boolean</em>) – Needs phone number to complete order</li>
+<li><strong>need_email</strong> (<em>boolean</em>) – Needs email to complete order</li>
+<li><strong>need_shipping_address</strong> (<em>boolean</em>) – Needs shipping address to complete order</li>
+<li><strong>is_flexible</strong> (<em>boolean</em>) – Final price depends on shipping method</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Disable the notification</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – Message id to reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The inline keyboard applied to the message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.answerShippingQuery">
+<code class="descname">answerShippingQuery</code><span class="sig-paren">(</span><em>shipping_query_id</em>, <em>ok</em>, <em>shipping_options=None</em>, <em>error_message=''</em><span class="sig-paren">)</span><a class="headerlink" href="#API.answerShippingQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <code class="docutils literal"><span class="pre">is_flexible</span></code> and <code class="docutils literal"><span class="pre">need_shipping_address</span></code> are in the invoice, sends an update.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shipping_query_id</strong> (<em>str</em>) – The shipping query id</li>
+<li><strong>ok</strong> (<em>boolean</em>) – Is the address ok</li>
+<li><strong>shipping_options</strong> (<em>list</em>) – Sends the shipping options</li>
+<li><strong>error_message</strong> (<em>str</em>) – The error message to send to the user as a reason for the shipping to fail.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.answerPreCheckoutQuery">
+<code class="descname">answerPreCheckoutQuery</code><span class="sig-paren">(</span><em>pre_checkout_query_id</em>, <em>ok</em>, <em>error_message=''</em><span class="sig-paren">)</span><a class="headerlink" href="#API.answerPreCheckoutQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>After shipping and payment details are confirmed, send a confirmation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pre_checkout_query_id</strong> (<em>str</em>) – The precheckout query id</li>
+<li><strong>ok</strong> (<em>boolean</em>) – Is the order ok</li>
+<li><strong>error_message</strong> (<em>str</em>) – The error message to send to the user as a reason for the order to fail.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendGame">
+<code class="descname">sendGame</code><span class="sig-paren">(</span><em>chat_id</em>, <em>game_short_name</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a game to users in a chat.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>game_short_name</strong> (<em>str</em>) – The id of the target chat</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Disable the notification</li>
+<li><strong>reply_to_message_id</strong> (<em>int</em>) – Message id to reply to</li>
+<li><strong>reply_markup</strong> (<em>dict</em>) – The inline keyboard applied to the message</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.exportChatInviteLink">
+<code class="descname">exportChatInviteLink</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.exportChatInviteLink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports an invite link</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.setChatPhoto">
+<code class="descname">setChatPhoto</code><span class="sig-paren">(</span><em>chat_id</em>, <em>photo</em><span class="sig-paren">)</span><a class="headerlink" href="#API.setChatPhoto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the chat photo</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>photo</strong> (<em>file</em>) – The photo to set as the chat photo</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.deleteChatPhoto">
+<code class="descname">deleteChatPhoto</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.deleteChatPhoto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a chat photo</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.setChatTitle">
+<code class="descname">setChatTitle</code><span class="sig-paren">(</span><em>chat_id</em>, <em>title</em><span class="sig-paren">)</span><a class="headerlink" href="#API.setChatTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the chat title</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>title</strong> (<em>str</em>) – The text to set as the chat title</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.setChatDescription">
+<code class="descname">setChatDescription</code><span class="sig-paren">(</span><em>chat_id</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#API.setChatDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the chat description</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>description</strong> (<em>str</em>) – The text to set as the chat description</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.pinChatMessage">
+<code class="descname">pinChatMessage</code><span class="sig-paren">(</span><em>chat_id</em>, <em>message_id</em>, <em>disable_notification=False</em><span class="sig-paren">)</span><a class="headerlink" href="#API.pinChatMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the chat description</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</li>
+<li><strong>message_id</strong> (<em>int</em>) – The id of the target message</li>
+<li><strong>disable_notification</strong> (<em>boolean</em>) – Disable the notification</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.unpinChatMessage">
+<code class="descname">unpinChatMessage</code><span class="sig-paren">(</span><em>chat_id</em><span class="sig-paren">)</span><a class="headerlink" href="#API.unpinChatMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpins the message in the target chat</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chat_id</strong> (<em>int</em>) – The id of the target chat</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.getStickerSet">
+<code class="descname">getStickerSet</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#API.getStickerSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the sticker set with the name specified</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – The name of the sticker set</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.sendSticker">
+<code class="descname">sendSticker</code><span class="sig-paren">(</span><em>chat_id</em>, <em>sticker</em>, <em>disable_notification=False</em>, <em>reply_to_message_id=None</em>, <em>reply_markup=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.sendSticker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="API.uploadStickerFile">
+<code class="descname">uploadStickerFile</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#API.uploadStickerFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads a new sticker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> (<em>int</em>) – The user id of the sticker owner</li>
+<li><strong>png_sticker</strong> (<em>file</em>) – The png file with at least one side of 512px</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.createNewStickerSet">
+<code class="descname">createNewStickerSet</code><span class="sig-paren">(</span><em>user_id</em>, <em>name</em>, <em>title</em>, <em>png_sticker</em>, <em>emojis</em>, <em>contains_masks=False</em>, <em>mask_position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.createNewStickerSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uploads a new sticker</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> (<em>int</em>) – The user id of the sticker owner</li>
+<li><strong>name</strong> (<em>str</em>) – The short name of the sticker set</li>
+<li><strong>title</strong> (<em>str</em>) – The title of the sticker set</li>
+<li><strong>png_sticker</strong> (<em>file</em>) – The png file with at least one side of 512px</li>
+<li><strong>emojis</strong> (<em>str</em>) – Emoji to correspond to a sticker</li>
+<li><strong>contains_masks</strong> (<em>boolean</em>) – Set of mask stickers should be created</li>
+<li><strong>mask_position</strong> (<em>dict</em>) – Position of the mask</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.addStickerToSet">
+<code class="descname">addStickerToSet</code><span class="sig-paren">(</span><em>user_id</em>, <em>name</em>, <em>png_sticker</em>, <em>emojis</em>, <em>mask_position=None</em><span class="sig-paren">)</span><a class="headerlink" href="#API.addStickerToSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds sticker to set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_id</strong> (<em>int</em>) – The user id of the sticker owner</li>
+<li><strong>name</strong> (<em>str</em>) – The short name of the sticker set</li>
+<li><strong>png_sticker</strong> (<em>file</em>) – The png file with at least one side of 512px</li>
+<li><strong>emojis</strong> (<em>str</em>) – Emoji to correspond to a sticker</li>
+<li><strong>mask_position</strong> (<em>dict</em>) – Position of the mask</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.setStickerPositionInSet">
+<code class="descname">setStickerPositionInSet</code><span class="sig-paren">(</span><em>sticker</em>, <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#API.setStickerPositionInSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves sticker to position in the set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sticker</strong> (<em>str</em>) – File id of sticker</li>
+<li><strong>position</strong> (<em>int</em>) – New sticker position, zero-based</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="API.deleteStickerFromSet">
+<code class="descname">deleteStickerFromSet</code><span class="sig-paren">(</span><em>sticker</em><span class="sig-paren">)</span><a class="headerlink" href="#API.deleteStickerFromSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes sticker from set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sticker</strong> (<em>str</em>) – File id of sticker</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ChatAction">
+<em class="property">class </em><code class="descname">ChatAction</code><span class="sig-paren">(</span><em>Enum</em><span class="sig-paren">)</span><a class="headerlink" href="#ChatAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="ChatAction.TYPING">
+<code class="descname">TYPING</code><a class="headerlink" href="#ChatAction.TYPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.PHOTO">
+<code class="descname">PHOTO</code><a class="headerlink" href="#ChatAction.PHOTO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.UVIDEO">
+<code class="descname">UVIDEO</code><a class="headerlink" href="#ChatAction.UVIDEO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.RVIDEO">
+<code class="descname">RVIDEO</code><a class="headerlink" href="#ChatAction.RVIDEO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.UAUDIO">
+<code class="descname">UAUDIO</code><a class="headerlink" href="#ChatAction.UAUDIO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.RAUDIO">
+<code class="descname">RAUDIO</code><a class="headerlink" href="#ChatAction.RAUDIO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.DOCUMENT">
+<code class="descname">DOCUMENT</code><a class="headerlink" href="#ChatAction.DOCUMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.LOCATION">
+<code class="descname">LOCATION</code><a class="headerlink" href="#ChatAction.LOCATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.UVIDNOTE">
+<code class="descname">UVIDNOTE</code><a class="headerlink" href="#ChatAction.UVIDNOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ChatAction.RVIDNOTE">
+<code class="descname">RVIDNOTE</code><a class="headerlink" href="#ChatAction.RVIDNOTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Josh Bacon.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
