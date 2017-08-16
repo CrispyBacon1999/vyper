@@ -10,7 +10,9 @@ Welcome to Vyper-Bot's documentation!
     :maxdepth: 2
     :caption: Contents:
 
+.. _API:
 
+:ref:`API Docs <API>`
 
 Installation
 ------------
