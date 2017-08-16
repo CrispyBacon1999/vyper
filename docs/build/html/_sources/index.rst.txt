@@ -7,12 +7,15 @@ Welcome to Vyper-Bot's documentation!
 =====================================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
+    :name: mastertoc
     :caption: Contents:
+    :titlesonly:
 
-.. _API:
+    Installation <./index>
+    Api Documentation <api/api>
 
-:ref:`API Docs <API>`
+
 
 Installation
 ------------
@@ -21,11 +24,13 @@ To install using pip, simply run
 
 ``pip3 install vyper-bot``
 
-in a terminal.
-
-If you already have it installed but want to check for a new version, run
+in a terminal. If you already have it installed but want to check for a new version, run
 
 ``pip3 install vyper-bot --upgrade``
+
+.. NOTE::
+    If you get an error saying that pip3 is not recognized as an internal or external command, try running ``py -m -3 pip install vyper-bot``.
+    This can occur if python isn't installed correctly or if it isn't added to the $PATH on windows.
 
 Getting Started
 ---------------
@@ -58,6 +63,9 @@ and turn it into
     bot = vyper.API().configure('botkey')
 
 where ``botkey`` is your key that you got from |bf|.
+
+.. IMPORTANT::
+    Make sure you change the botkey or your code WILL NOT WORK!
 
 Now, you can run any of the methods from the |tgapi|_ using the following code as an example.
 
@@ -97,3 +105,14 @@ All that needs to be done is to create a method that will be run from a message 
         bot.getUpdates()
         time.sleep(.05)
 
+.. NOTE::
+    You can use any of the following as a key in the functions dictionary:
+        :py:const:`message`
+        :py:const:`edited_message`
+        :py:const:`channel_post`
+        :py:const:`edited_channel_post`
+        :py:const:`inline_query`
+        :py:const:`chosen_inline_result`
+        :py:const:`callback_query`
+        :py:const:`shipping_query`
+        :py:const:`pre_checkout_query`

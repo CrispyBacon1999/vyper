@@ -1,9 +1,6 @@
-API DOCUMENTATION
+Api Documentation
 =================
 
-.. autosummary::
-
-    API
 
 .. class:: API
 

@@ -1,3 +1,7 @@
+Api Documentation
+=================
+
+
 .. class:: API
 
     **Vyper Methods**
