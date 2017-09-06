@@ -1,5 +1,6 @@
 import json
 
+
 class Item:
     def __init__(self, name, description, token, start_parameter=None, currency='USD', prices=None):
         '''
