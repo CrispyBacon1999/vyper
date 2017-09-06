@@ -8,16 +8,6 @@ Basebot
     :titlesonly:
     :hidden:
 
-    API <api/api>
-
-.. toctree::
-    :maxdepth: 1
-    :caption: Bases
-    :name: master
-    :hidden:
-
-    BaseBot <bases/basebot>
-    PluginBot <bases/pluginbot>
 
 As of ``version 3.3``, vyper-bot comes with template bots to make getting started easier. The most basic one being :py:class:`basebot`.
 It provides a very simple framework for your bot.

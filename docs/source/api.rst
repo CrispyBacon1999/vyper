@@ -8,8 +8,6 @@ Api Documentation
     :titlesonly:
     :hidden:
 
-    API <api/api>
-    BaseBot <bases/basebot>
 
 .. class:: API
 

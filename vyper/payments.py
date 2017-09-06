@@ -1,5 +1,5 @@
 import json
-
+import time
 class Item:
     def __init__(self, name, description, token, start_parameter=None, currency='USD', prices=None):
         '''
@@ -20,7 +20,8 @@ class Item:
             self.prices = json.dumps(prices)
     def invoice(self, msg):
         chat_id = msg['chat']['id']
-        payload = str(msg['from']['id']) + self.start_parameter
+        timestamp = int(time.time())
+        payload = str(msg['from']['id']) + self.start_parameter + str(timestamp)
         return ((chat_id, self.name, self.description, payload, self.token, self.start_parameter, self.currency, self.prices), Payload(payload, self))
 
 class Payload:

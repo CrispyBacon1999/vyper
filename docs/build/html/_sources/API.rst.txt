@@ -1,9 +1,13 @@
-API DOCUMENTATION
+Api Documentation
 =================
 
-.. autosummary::
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents
+    :name: master
+    :titlesonly:
+    :hidden:
 
-    API
 
 .. class:: API
 
