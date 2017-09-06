@@ -45,7 +45,7 @@ for importer, modname, ispkg in pkgutil.walk_packages(path=__path__, prefix=__na
 		if 'text' in msg:
 			for plugin in list(self.plugins):
 				print(plugin)
-				plugin.execute(msg)
+				plugin.message(msg)
 
 class Plugin:
 	bot = None
@@ -53,11 +53,12 @@ class Plugin:
 	def __repr__(self):
 		return "Plugin: {0}".format(self.__class__.__name__)
 
-	def execute(self, msg):
+	def message(self, msg):
 		pass
 
+
 class Ping(Plugin):
-	def execute(self, msg):
+	def message(self, msg):
 		if msg['text'] == '/ping':
 			self.bot.sendMessage(msg['chat']['id'], 'PONG!')
 
