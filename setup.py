@@ -9,4 +9,5 @@ setup(name='vyper-bot',
       requires=[
             'requests',
             'json'
-          ])
+          ],
+      description='A telegram API written in pure python, created for beginners, but catering to advanced users. Has many functions built in to make bot creation easier, as well as some prebuilt classes to make starting a breeze.')
