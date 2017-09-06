@@ -19,7 +19,7 @@ class API():
 
 	def request(self, endpoint, parameters=None, file=None):
 		if not endpoint or type(endpoint) is not str:
-			sys.exit("Tried to make invalid request.")
+			raise ValueError("Invalid endpoint.")
 		# Make Request
 		req = json.loads(requests.get(vyperconfig.apiurl % (self._token, endpoint), params=parameters, files=file).text)
 		if req['ok']:
@@ -37,7 +37,7 @@ class API():
 		else:
 			lastupdate = open(vyperconfig.lastupdatefile, 'a+')
 		lastup = lastupdate.read()
-		if(lastup):
+		if lastup:
 			offset = int(lastup)+1
 			updates = self.request('getUpdates', parameters={'offset': offset})
 		else:
@@ -46,7 +46,7 @@ class API():
 			for key, value in self._functions.items():
 				if key in update:
 					value(update)
-		if(len(updates) > 0):
+		if len(updates) > 0:
 			lastupdate = open(vyperconfig.lastupdatefile, 'w')
 			lastupdate.write(str(updates[-1]['update_id']))
 			lastupdate.close()
@@ -543,6 +543,9 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('deleteStickerFromSet', parameters=paramscleaned)
 		
+
+	
+
 from enum import Enum
 class ChatAction(Enum):
 	TYPING = 'typing',

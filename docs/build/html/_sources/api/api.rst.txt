@@ -1,6 +1,15 @@
 Api Documentation
 =================
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents
+    :name: master
+    :titlesonly:
+    :hidden:
+
+    API <api/api>
+    BaseBot <bases/basebot>
 
 .. class:: API
 

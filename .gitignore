@@ -1,0 +1,8 @@
+dist/*
+build/*
+*.pyc
+*.xls
+*.bat
+.vscode
+*.vyper
+*test.py

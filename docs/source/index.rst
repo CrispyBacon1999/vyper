@@ -8,13 +8,13 @@ Welcome to Vyper-Bot's documentation!
 
 .. toctree::
     :maxdepth: 1
-    :name: mastertoc
-    :caption: Contents:
+    :caption: Contents
+    :name: master
     :titlesonly:
+    :hidden:
 
-    Installation <./index>
-    Api Documentation <api/api>
-
+    API <api/api>
+    BaseBot <bases/basebot>
 
 
 Installation

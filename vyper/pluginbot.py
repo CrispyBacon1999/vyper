@@ -1,8 +1,19 @@
 import basebot
+import os
 
 class PluginBot(basebot.BaseBot):
 
-	def __init__(self, token, debug=False, start_loop=False, loop_time=.05):
+	def __init__(self, token, debug=False, start_loop=False, loop_time=.05, ping=True, list_plugins=False):
+		if not os.path.exists('plugins'):
+			os.mkdir('plugins')
+		with open('plugins/__init__.py', 'w') as ini:
+			ini.write("""import pkgutil 
+
+__path__ = pkgutil.extend_path(__path__, __name__)
+for importer, modname, ispkg in pkgutil.walk_packages(path=__path__, prefix=__name__+'.'):
+	__import__(modname)""")
+		import plugins
+		Ping.enabled = ping
 		self.functions = {
 			'message': self.message, 
 			'edited_message': self.edited_message,
@@ -15,23 +26,32 @@ class PluginBot(basebot.BaseBot):
 			'pre_checkout_query': self.pre_checkout_query
 		}
 		self.configure(token, functions=self.functions, debug=debug)
-		self.plugins = self._get_plugins()
+		self.plugins = list(self._get_plugins())
+		if list_plugins:
+			for plugin in self.plugins:
+				print(plugin)
 		if start_loop:
 			self.start_loop(loop_time)
 
 	def _get_plugins(self):
 		for plugin in Plugin.__subclasses__():
-			plugin.bot = self
-			yield plugin()
+			if plugin.enabled:
+				plugin.bot = self
+				yield plugin()
 
 	def test_plugins(self, msg):
-		for plugin in self.plugins:
-			plugin.execute(msg)
+		print('Testing plugins')
+		print(list(self.plugins))
+		if 'text' in msg:
+			for plugin in list(self.plugins):
+				print(plugin)
+				plugin.execute(msg)
 
 class Plugin:
 	bot = None
+	enabled = True
 	def __repr__(self):
-		return "Vyper Plugin: {0}".format(self.__class__.__name__)
+		return "Plugin: {0}".format(self.__class__.__name__)
 
 	def execute(self, msg):
 		pass
