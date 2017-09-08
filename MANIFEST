@@ -2,6 +2,7 @@
 setup.py
 vyper\basebot.py
 vyper\keyboard.py
+vyper\payments.py
 vyper\pluginbot.py
 vyper\vyper.py
 vyper\vyperconfig.py

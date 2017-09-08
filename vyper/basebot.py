@@ -1,4 +1,4 @@
-import vyper
+from vyper import vyper
 import time
 
 class BaseBot(vyper.API):

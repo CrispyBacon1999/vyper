@@ -1,5 +1,5 @@
 import requests, json, sys, os
-import vyperconfig
+from vyper import vyperconfig
 
 
 # @title Vyper Bot

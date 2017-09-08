@@ -1,4 +1,4 @@
-import basebot
+from vyper import basebot
 import os
 
 class PluginBot(basebot.BaseBot):
