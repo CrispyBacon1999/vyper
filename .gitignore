@@ -6,3 +6,4 @@ build/*
 .vscode
 *.vyper
 *test.py
+plugins/*
