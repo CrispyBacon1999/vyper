@@ -40,11 +40,8 @@ for importer, modname, ispkg in pkgutil.walk_packages(path=__path__, prefix=__na
 				yield plugin()
 
 	def test_plugins(self, msg):
-		print('Testing plugins')
-		print(list(self.plugins))
 		if 'text' in msg:
 			for plugin in list(self.plugins):
-				print(plugin)
 				plugin.message(msg)
 
 class Plugin:

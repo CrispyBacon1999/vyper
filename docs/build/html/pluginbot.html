@@ -158,6 +158,154 @@
             
   <div class="section" id="plugin-bots">
 <h1>Plugin Bots<a class="headerlink" href="#plugin-bots" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="master">
+</div>
+<p>If you want to make a bot using a plugin system, <code class="xref py py-class docutils literal"><span class="pre">PluginBot</span></code> is the way to go. Rather than having to develop a system to decide which command to use, you can just create a class that extends <code class="xref py py-class docutils literal"><span class="pre">Plugin</span></code> and it will be automatically detected. If you run a bot using the <code class="xref py py-class docutils literal"><span class="pre">PluginBot</span></code> base, it will automatically create a folder called plugins, which will detect any file and plugin within that folder. What this means is that you won’t have to import any files and it will find them for you. I’ve found that this saves a lot of grief trying to figure out why a command won’t be detected properly, as it should be detected no matter what.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vyper</span> <span class="k">import</span> <span class="n">pluginbot</span>
+
+<span class="k">class</span> <span class="nc">TutorialBot</span><span class="p">(</span><span class="n">pluginbot</span><span class="o">.</span><span class="n">PluginBot</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">test_plugins</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">bot</span> <span class="o">=</span> <span class="n">VyperBot</span><span class="p">(</span><span class="s1">&#39;123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11&#39;</span><span class="p">,</span> <span class="n">start_loop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">list_plugins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vyper</span> <span class="k">import</span> <span class="n">pluginbot</span>
+
+<span class="k">class</span> <span class="nc">Help</span><span class="p">(</span><span class="n">pluginbot</span><span class="o">.</span><span class="n">Plugin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/help&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s1">&#39;chat&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="s1">&#39;This is the help command&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="pluginbot.PluginBot">
+<em class="property">class </em><code class="descclassname">pluginbot.</code><code class="descname">PluginBot</code><span class="sig-paren">(</span><em>token</em>, <em>debug=False</em>, <em>start_loop=False</em>, <em>loop_time=.05</em>, <em>ping=True</em>, <em>list_plugins=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inherits <code class="xref py py-class docutils literal"><span class="pre">pluginbot.BaseBot</span></code>, allowing you to use any of the API methods from within the bot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Members:</th><td class="field-body">start_message</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="pluginbot.PluginBot.start_loop">
+<code class="descname">start_loop</code><span class="sig-paren">(</span><em>loop_time</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.start_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will provide an easier way to create the update loop.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loop_time</strong> (<em>float</em>) – The time in between cycles of the loop</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.set_functions">
+<code class="descname">set_functions</code><span class="sig-paren">(</span><em>functions</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.set_functions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the functions that will run when an update is received. Defaults to the functions that are setup already, which are designed to be overwritten.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>functions</strong> (<em>dict</em>) – The dictionary of functions that will be run</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.test_plugins">
+<code class="descname">test_plugins</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.test_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests all the plugins and runs the <a class="reference internal" href="#pluginbot.PluginBot.message" title="pluginbot.PluginBot.message"><code class="xref py py-func docutils literal"><span class="pre">message()</span></code></a> method in them to scan them. This is bound to be changed in a future update to automatically test for a plugin based on a custom variable, but it doesn’t do that yet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msg</strong> – The message object that will be passed to the other end of the function. Can be a dictionary or a <code class="xref py py-class docutils literal"><span class="pre">types.Message</span></code> object, depending on personal preference. Note that the <code class="xref py py-class docutils literal"><span class="pre">types.Message</span></code> object must be created by calling <code class="docutils literal"><span class="pre">msg</span> <span class="pre">=</span> <span class="pre">types.build(msg)</span></code> and will return a dot operator seperated object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot._get_plugins">
+<code class="descname">_get_plugins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot._get_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of all the plugins that are found in the bot. You shouldn’t need to run this, but it gets run when testing the plugins automatically. Returns as a generator, so the plugins can be easily iterated over.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The plugins</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">Generator</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.message">
+<code class="descname">message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a message is received. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.edited_message">
+<code class="descname">edited_message</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.edited_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a message is edited. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.channel_post">
+<code class="descname">channel_post</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.channel_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a message is posted to a channel. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.edited_channel_post">
+<code class="descname">edited_channel_post</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.edited_channel_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a message is edited in a channel. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.inline_query">
+<code class="descname">inline_query</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.inline_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when an inline query is received. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.chosen_inline_result">
+<code class="descname">chosen_inline_result</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.chosen_inline_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when an inline query result is is chosen. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.callback_query">
+<code class="descname">callback_query</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.callback_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a callback is received. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.shipping_query">
+<code class="descname">shipping_query</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.shipping_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a shipping query is received. Overwrite this in your child bot.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pluginbot.PluginBot.pre_checkout_query">
+<code class="descname">pre_checkout_query</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#pluginbot.PluginBot.pre_checkout_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a pre-checkout query is received. Overwrite this in your child bot.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
