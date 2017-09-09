@@ -15,6 +15,7 @@ Welcome to Vyper-Bot's documentation!
 
     API <api>
     BaseBot <basebot>
+    PluginBot <pluginbot>
     Payments <pay>
 
 
