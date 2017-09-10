@@ -4,6 +4,6 @@ vyper\basebot.py
 vyper\keyboard.py
 vyper\payments.py
 vyper\pluginbot.py
+vyper\types.py
 vyper\vyper.py
 vyper\vyperconfig.py
-vyper\vypertest.py

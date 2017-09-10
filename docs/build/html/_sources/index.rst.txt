@@ -17,6 +17,7 @@ Welcome to Vyper-Bot's documentation!
     BaseBot <basebot>
     PluginBot <pluginbot>
     Payments <pay>
+    Version History <versions>
 
 
 Installation
