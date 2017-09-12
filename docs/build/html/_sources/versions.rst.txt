@@ -8,6 +8,13 @@ Version History
     :titlesonly:
     :hidden:
 
+
+**Version 4.1 (September 12, 2017)**
+
+- Added logging decorator to be added to the main class
+- Added a few missing types
+- Bug Fixes
+
 **Version 4.0 (September 9, 2017)**
 
 - Created version log
