@@ -2,11 +2,8 @@ import json
 
 def build(msg):
 	new = None
-	print(msg)
 	for k, v in msg.items():
-		print(k)
 		if 'message' == k:
-			print('Creating Message')
 			return Message(v)
 		if 'edited_message' == k:
 			return Message(v)
@@ -60,24 +57,91 @@ class Message:
 				setattr(self, k, Location(v))
 			elif k == 'venue':
 				setattr(self, k, Venue(v))
+			elif k == 'invoice':
+				setattr(self, k, Invoice(v))
+			elif k == 'successful_payment':
+				setattr(self, k, SuccessfulPayment(v))
 			else:
 				setattr(self, k, v)
 
 
 class InlineQuery:
-	pass
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'location':
+				setattr(self, k, Location(v))
+			else:
+				setattr(self, k, v)
 
 class ChosenInlineResult:
-	pass
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'location':
+				setattr(self, k, Location(v))
+			else:
+				setattr(self, k, v)
 
 class CallbackQuery:
-	pass
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'message':
+				setattr(self, k, Message(v))
+			else:
+				setattr(self, k, v)
 
 class ShippingQuery:
-	pass
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'shipping_address':
+				setattr(self, k, ShippingAddress(v))
+			else:
+				setattr(self, k, v)
 
 class PreCheckoutQuery:
-	pass
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'order_info':
+				setattr(self, k, OrderInfo(v))
+			else:
+				setattr(self, k, v)
+
+class ShippingAddress:
+	def __init__(self, msg):
+		for k, v in msg.items():
+			setattr(self, k, v)
+
+class SuccessfulPayment:
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'order_info':
+				setattr(self, k, OrderInfo(v))
+			else:
+				setattr(self, k, v)
+
+class OrderInfo:
+	def __init__(self, msg):
+		for k, v in msg.items():
+			if k == 'from':
+				setattr(self, 'frm', User(v))
+			elif k == 'order_info':
+				setattr(self, k, ShippingAddress(v))
+			else:
+				setattr(self, k, v)
+
+class Invoice:
+	def __init__(self, msg):
+		for k, v in msg.items():
+			setattr(self, k, v)
 
 class User:
 	def __init__(self, msg):
