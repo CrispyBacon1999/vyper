@@ -9,6 +9,13 @@ class API():
 	_token = ''
 	_debug = False
 	_functions = None
+
+	def __init__(self, token=None, functions=None, debug=False):
+		self.configure(token, functions, debug)
+
+	def __repr__(self):
+		return "Vyper Bot API"
+
 	def configure(self, token, functions=None,debug=False):
 		if not token or not isinstance(token, str):
 			raise ValueError("Provide a valid token. Can be retrieved from @BotFather!")
@@ -37,15 +44,21 @@ class API():
 		else:
 			lastupdate = open(vyperconfig.lastupdatefile, 'a+')
 		lastup = lastupdate.read()
-		if lastup:
-			offset = int(lastup)+1
-			updates = self.request('getUpdates', parameters={'offset': offset})
-		else:
-			updates = self.request('getUpdates')
-		for update in updates:
-			for key, value in self._functions.items():
-				if key in update:
-					value(update)
+		try:
+			if lastup:
+				offset = int(lastup)+1
+				updates = self.request('getUpdates', parameters={'offset': offset})
+			else:
+				updates = self.request('getUpdates')
+			for update in updates:
+				for key, value in self._functions.items():
+					if key in update:
+						value(update[key])
+		except ConnectionError:
+			print('Connection Error')
+		except TimeoutError:
+			print('Timeout Error')
+	
 		if len(updates) > 0:
 			lastupdate = open(vyperconfig.lastupdatefile, 'w')
 			lastupdate.write(str(updates[-1]['update_id']))
@@ -64,6 +77,9 @@ class API():
 		if 'message' in update:
 			update['message'] = Message(update)
 
+
+	def replyMessage(self, msg, text, parse_mode=None, disable_web_page_preview=False, disable_notification=False, reply_markup=None):
+		self.sendMessage(msg['chat']['id'], text, parse_mode=parse_mode, disable_web_page_preview=disable_web_page_preview, disable_notification=disable_notification, reply_to_message_id=msg['id'], reply_markup=reply_markup)
 
 	def sendMessage(self, chat_id, text, parse_mode=None, disable_web_page_preview=False, disable_notification=False, reply_to_message_id=None, reply_markup=None):
 		params = {
@@ -172,18 +188,42 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('sendVideoNote', parameters=paramscleaned, file={'video_note': voice})
 		
-	def sendLocation(self, chat_id, latitude, longitude, disable_notification=False, reply_to_message_id=None, reply_markup=None):
+	def sendLocation(self, chat_id, latitude, longitude, live_period=0, disable_notification=False, reply_to_message_id=None, reply_markup=None):
 		params = {
 			'chat_id': chat_id,
 			'latitude': latitude,
 			'longitude': longitude,
 			'disable_notification': disable_notification,
 			'reply_to_message_id': reply_to_message_id,
-			'reply_markup': reply_markup
+			'reply_markup': reply_markup,
+			'live_period': live_period
 			}
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('sendLocation', parameters=paramscleaned)
 		
+	def editMessageLiveLocation(self, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None)
+		params = {
+			'chat_id': chat_id,
+			'message_id': message_id,
+			'inline_message_id': inline_message_id,
+			'reply_markup': reply_markup
+			}
+		paramscleaned = {k: v for k, v in params.items() if v}
+		return self.request('editMessageLiveLocation', parameters=paramscleaned)
+
+	def stopMessageLiveLocation(self, latitude, longitude, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None)
+		params = {
+			'chat_id': chat_id,
+			'message_id': message_id,
+			'inline_message_id': inline_message_id,
+			'latitude': latitude,
+			'longitude': longitude,
+			'reply_markup': reply_markup
+			}
+		paramscleaned = {k: v for k, v in params.items() if v}
+		return self.request('editMessageLiveLocation', parameters=paramscleaned)
+
+
 	def sendVenue(self, chat_id, latitude, longitude, title, address, foursquare_id='', disable_notification=False, reply_to_message_id=None, reply_markup=None):
 		params = {
 			'chat_id': chat_id,
@@ -492,6 +532,21 @@ class API():
 		return self.request('unpinChatMessage', parameters=paramscleaned)
 		
 	# Sticker Sets
+	def setChatStickerSet(self, chat_id, sticker_set_name):
+		params = {
+			'chat_id': chat_id,
+			'sticker_set_name': sticker_set_name
+		}
+		paramscleaned = {k: v for k, v in params.items() if v}
+		return self.request('setChatStickerSet', parameters=paramscleaned)
+
+	def deleteChatStickerSet(self, chat_id):
+		params = {
+			'chat_id': chat_id
+			}
+		paramscleaned = {k: v for k, v in params.items() if v}
+		return self.request('deleteChatStickerSet', parameters=paramscleaned)
+
 	def getStickerSet(self, name):
 		params = {
 			'name': name

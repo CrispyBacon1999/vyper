@@ -1,9 +1,10 @@
 from vyper import basebot
+from vyper.web import interface
 import os
 
 class PluginBot(basebot.BaseBot):
 
-	def __init__(self, token, debug=False, start_loop=False, loop_time=.05, ping=True, list_plugins=False):
+	def __init__(self, token, debug=False, start_loop=False, loop_time=.05, ping=True, list_plugins=False, web_app=None, name=None):
 		if not os.path.exists('plugins'):
 			os.mkdir('plugins')
 		with open('plugins/__init__.py', 'w') as ini:
@@ -30,6 +31,7 @@ for importer, modname, ispkg in pkgutil.walk_packages(path=__path__, prefix=__na
 		if list_plugins:
 			for plugin in self.plugins:
 				print(plugin)
+		self.web_app = web_app
 		if start_loop:
 			self.start_loop(loop_time)
 

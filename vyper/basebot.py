@@ -1,11 +1,12 @@
 from vyper import vyper
 import time
+from vyper.web import interface
 
 class BaseBot(vyper.API):
 
 	start_message = 'Starting bot. Break the loop by using Ctrl-C on Windows, or Command+C on Mac.'
-
-	def __init__(self, token, debug=False, start_loop=False, loop_time=.05):
+	web_app = None
+	def __init__(self, token, debug=False, start_loop=False, loop_time=.05, web_app=None, name=""):
 		self.functions = {
 			'message': self.message, 
 			'edited_message': self.edited_message,
@@ -18,6 +19,10 @@ class BaseBot(vyper.API):
 			'pre_checkout_query': self.pre_checkout_query
 		}
 		self.configure(token, functions=self.functions, debug=debug)
+
+		if web_app:
+			self.web_app = web_app
+			interface.run(web_app, name=str(name))
 		if start_loop:
 			self.start_loop(loop_time)
 

@@ -1,0 +1,16 @@
+#log {
+    display: flex;
+    flex-direction:column-reverse;
+    height: 200px;
+}
+.log-element {
+    font-size:12px;
+    height: 30px;
+}
+
+
+.scroll {
+    outline: 1px solid black;
+    overflow-y: scroll;
+}
+
