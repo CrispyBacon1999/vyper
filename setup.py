@@ -1,7 +1,7 @@
 
 from distutils.core import setup
 setup(name='vyper-bot',
-      version='5.0',
+      version='5.0.1',
       author='Josh Bacon',
       author_email='bacon.josh09@gmail.com',
       packages=['vyper',],

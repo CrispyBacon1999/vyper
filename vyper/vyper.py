@@ -201,7 +201,7 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('sendLocation', parameters=paramscleaned)
 		
-	def editMessageLiveLocation(self, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None)
+	def editMessageLiveLocation(self, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None):
 		params = {
 			'chat_id': chat_id,
 			'message_id': message_id,
@@ -211,7 +211,7 @@ class API():
 		paramscleaned = {k: v for k, v in params.items() if v}
 		return self.request('editMessageLiveLocation', parameters=paramscleaned)
 
-	def stopMessageLiveLocation(self, latitude, longitude, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None)
+	def stopMessageLiveLocation(self, latitude, longitude, chat_id=None, message_id=None, inline_message_id=None, reply_markup=None):
 		params = {
 			'chat_id': chat_id,
 			'message_id': message_id,
