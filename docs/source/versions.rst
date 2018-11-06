@@ -9,6 +9,11 @@ Version History
     :hidden:
 
 
+**Version 4.2 (November 6, 2018)**
+
+- Starting work on API again
+- Bug fixes
+
 **Version 4.1 (September 12, 2017)**
 
 - Added logging decorator to be added to the main class

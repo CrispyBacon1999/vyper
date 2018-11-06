@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/vyper-bot"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+grequests = "*"
+
+[dev-packages]
+sphinx = "*"
+
+[requires]
+python_version = "3.7"
