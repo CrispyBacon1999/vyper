@@ -9,7 +9,7 @@ Version History
     :hidden:
 
 
-**Version 4.2 (November 6, 2018)**
+**Version 5.0.2 (November 6, 2018)**
 
 - Starting work on API again
 - Bug fixes

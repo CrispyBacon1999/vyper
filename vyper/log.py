@@ -45,42 +45,42 @@ def log(func):
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
 				chatname = p.chat.title if hasattr(p.chat, 'title') else p.chat.id
-				prnt('{0} : {1} {2} : {3}'.format(chatname, first, last, text))
+				prnt(f'{chatname} : {first} {last} : {text}')
 
 			if type(p) == types.InlineQuery:
 				query = p.query
 				f = p.frm
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
-				prnt('Inline Query : {0} {1} : {2}'.format(first, last, query))
+				prnt(f'Inline Query : {first} {last} : {query}')
 
 			if type(p) == types.ChosenInlineResult:
 				result = p.result_id
 				f = p.frm
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
-				prnt('Inline Query Chosen : {0} {1} : {2}'.format(first, last, result))
+				prnt(f'Inline Query Chosen : {first} {last} : {result}')
 				
 			if type(p) == types.CallbackQuery:
 				id = p.id
 				f = p.frm
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
-				prnt('Callback : {0} {1} : {2}'.format(first, last, id))
+				prnt(f'Callback : {first} {last} : {id}')
 				
 			if type(p) == types.ShippingQuery:
 				payload = p.invoice_payload
 				f = p.frm
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
-				prnt('Shipping : {0} {1} : {2}'.format(first, last, payload))
+				prnt(f'Shipping : {first} {last} : {payload}')
 				
 			if type(p) == types.PreCheckoutQuery:
 				payload = p.invoice_payload
 				f = p.frm
 				first = f.first_name
 				last = f.last_name if hasattr(f, 'last_name') else '\b'
-				prnt('Pre-Checkout : {0} {1} : {2}'.format(first, last, payload))
+				prnt(f'Pre-Checkout : {first} {last} : {payload}')
 		return func(*args, **kwargs)
 	return wrapper
 

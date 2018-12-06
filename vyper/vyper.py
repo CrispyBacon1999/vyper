@@ -28,11 +28,11 @@ class API():
 		if not endpoint or type(endpoint) is not str:
 			raise ValueError("Invalid endpoint.")
 		# Make Request
-		req = json.loads(requests.get(vyperconfig.apiurl % (self._token, endpoint), params=parameters, files=file).text)
+		req = json.loads(requests.get(vyperconfig.apiurl.format(self._token, endpoint), params=parameters, files=file).text)
 		if req['ok']:
 			return req['result']
 		else:
-			print("Tried to make invalid request: %s" % endpoint)
+			print(f"Tried to make invalid request: {endpoint}")
 			print(parameters)
 
 	def getMe(self):
