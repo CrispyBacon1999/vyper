@@ -4,7 +4,7 @@ setup(name='vyper-bot',
       version='5.0.2',
       author='Josh Bacon',
       author_email='bacon.josh09@gmail.com',
-      packages=['vyper',],
+      packages=['vyper', ],
       url='https://vyper-bot.readthedocs.io',
       requires=[
             'requests'
