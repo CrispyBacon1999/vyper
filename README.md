@@ -1,1 +1,3 @@
-Information for bot installation as well as documentation can be found at <https://vyper-bot.readthedocs.io>.
+# Vyper Bot
+
+[![Build Status](https://travis-ci.com/CrispyBacon1999/vyper.svg?branch=master)](https://travis-ci.com/CrispyBacon1999/vyper)
